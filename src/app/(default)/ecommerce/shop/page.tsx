@@ -1,4 +1,4 @@
-import ShopCard from './shop-card'
+import ShopCards from './shop-cards'
 
 export const metadata = {
   title: 'Shop - Mosaic',
@@ -6,8 +6,6 @@ export const metadata = {
 }
 
 const Shop = async () => {
-  const items = await fetch('http://localhost:3000/api/shop').then(res => res.json());
-
   return (
     <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-[96rem] mx-auto">
       {/* Page header */}
@@ -60,7 +58,7 @@ const Shop = async () => {
         <div className="mt-8">
           <h2 className="text-xl leading-snug text-slate-800 dark:text-slate-100 font-bold mb-5">Video Courses</h2>
           <div className="grid grid-cols-12 gap-6">
-            {items.map((item, i) => <ShopCard key={i} {...item} />)}
+            <ShopCards />
           </div>
         </div>
 

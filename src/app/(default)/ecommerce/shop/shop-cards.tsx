@@ -1,17 +1,22 @@
-import Image, { type StaticImageData } from 'next/image'
+'use client';
+
+import { useState, useEffect } from 'react';
+import Image from 'next/image'
 import Link from 'next/link';
+
+type ShopCardProps = {
+  imageUrl: string;
+  title: string;
+  rate: number;
+  price: number;
+}
 
 const ShopCard = ({
   imageUrl,
   title,
   rate,
   price,
-}: {
-  imageUrl: StaticImageData;
-  title: string
-  rate: number
-  price: number
-}) => {
+}: ShopCardProps) => {
   return (
     <div
       className="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
@@ -122,4 +127,19 @@ const ShopCard = ({
   )
 }
 
-export default ShopCard;
+const ShopCards = () => {
+  const [items, setItems] = useState<ShopCardProps[] | []>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/shop').then(res => res.json())
+      .then((res: ShopCardProps[]) => {
+        setItems(res);
+      })
+  }, []);
+
+  return items.map((item, i) =>
+    <ShopCard key={i} {...item} />
+  )
+};
+
+export default ShopCards;
