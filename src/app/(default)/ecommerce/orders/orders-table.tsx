@@ -1,38 +1,42 @@
-'use client'
+'use client';
 
-import { StaticImageData } from 'next/image'
-import { useItemSelection } from '@/components/utils/use-item-selection'
-import OrdersTableItem from './orders-table-item'
+import { StaticImageData } from 'next/image';
+import { useItemSelection } from '@/components/utils/use-item-selection';
+import OrdersTableItem from './orders-table-item';
 
 export interface Order {
-  id: number
-  image: StaticImageData
-  order: string
-  date: string
-  customer: string
-  total: string
-  status: string
-  items: string
-  location: string
-  type: string
-  description: string  
+  id: number;
+  image: StaticImageData;
+  order: string;
+  date: string;
+  customer: string;
+  total: string;
+  status: string;
+  items: string;
+  location: string;
+  type: string;
+  description: string;
 }
 
-export default function OrdersTable({ orders }: { orders: Order[]}) {
+export default function OrdersTable({ orders }: { orders: Order[] }) {
   const {
     selectedItems,
     isAllSelected,
     handleCheckboxChange,
     handleSelectAllChange,
-  } = useItemSelection(orders)  
+  } = useItemSelection(orders);
 
   return (
-    <div className="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 relative">
+    <div className="bg-white dark:bg-slate-800 shadow-lg rounded-xs border border-slate-200 dark:border-slate-700 relative">
       <header className="px-5 py-4">
-        <h2 className="font-semibold text-slate-800 dark:text-slate-100">All Orders <span className="text-slate-400 dark:text-slate-500 font-medium">442</span></h2>
+        <h2 className="font-semibold text-slate-800 dark:text-slate-100">
+          All Orders{' '}
+          <span className="text-slate-400 dark:text-slate-500 font-medium">
+            442
+          </span>
+        </h2>
       </header>
       <div>
-
         {/* Table */}
         <div className="overflow-x-auto">
           <table className="table-auto w-full dark:text-slate-300 divide-y divide-slate-200 dark:divide-slate-700">
@@ -43,7 +47,12 @@ export default function OrdersTable({ orders }: { orders: Order[]}) {
                   <div className="flex items-center">
                     <label className="inline-flex">
                       <span className="sr-only">Select all</span>
-                      <input className="form-checkbox" type="checkbox" onChange={handleSelectAllChange} checked={isAllSelected} />
+                      <input
+                        className="form-checkbox"
+                        type="checkbox"
+                        onChange={handleSelectAllChange}
+                        checked={isAllSelected}
+                      />
                     </label>
                   </div>
                 </th>
@@ -77,17 +86,17 @@ export default function OrdersTable({ orders }: { orders: Order[]}) {
               </tr>
             </thead>
             {/* Table body */}
-            {orders.map(order => (
+            {orders.map((order) => (
               <OrdersTableItem
                 key={order.id}
                 order={order}
                 onCheckboxChange={handleCheckboxChange}
-                isSelected={selectedItems.includes(order.id)} />
+                isSelected={selectedItems.includes(order.id)}
+              />
             ))}
           </table>
-
         </div>
       </div>
     </div>
-  )
+  );
 }

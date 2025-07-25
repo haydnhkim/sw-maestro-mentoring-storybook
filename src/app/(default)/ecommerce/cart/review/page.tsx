@@ -38,7 +38,7 @@ export default function Cart() {
 
         {/* Sidebar */}
         <div>
-          <div className="bg-white dark:bg-slate-800 p-5 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 lg:w-[18rem] xl:w-[20rem]">
+          <div className="bg-white dark:bg-slate-800 p-5 shadow-lg rounded-xs border border-slate-200 dark:border-slate-700 lg:w-[18rem] xl:w-[20rem]">
             <div className="text-slate-800 dark:text-slate-100 font-semibold mb-2">
               Order Summary
             </div>

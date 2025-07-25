@@ -1,21 +1,19 @@
+import { SelectedItemsProvider } from '@/app/selected-items-context';
+import DateSelect from '@/components/date-select';
+import DeleteButton from '@/components/delete-button';
+import FilterButton from '@/components/dropdown-filter';
+import PaginationClassic from '@/components/pagination-classic';
+import Image01 from '@/public/images/icon-01.svg';
+import Image02 from '@/public/images/icon-02.svg';
+import Image03 from '@/public/images/icon-03.svg';
+import OrdersTable from './orders-table';
+
 export const metadata = {
   title: 'Orders - Mosaic',
   description: 'Page description',
-}
-
-import { SelectedItemsProvider } from '@/app/selected-items-context'
-import DeleteButton from '@/components/delete-button'
-import DateSelect from '@/components/date-select'
-import FilterButton from '@/components/dropdown-filter'
-import OrdersTable from './orders-table'
-import PaginationClassic from '@/components/pagination-classic'
-
-import Image01 from '@/public/images/icon-01.svg'
-import Image02 from '@/public/images/icon-02.svg'
-import Image03 from '@/public/images/icon-03.svg'
+};
 
 function OrdersContent() {
-
   // Some dummy orders data
   const orders = [
     {
@@ -29,7 +27,8 @@ function OrdersContent() {
       items: '1',
       location: '🇨🇳 Shanghai, CN',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      description:
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
       id: 1,
@@ -42,7 +41,8 @@ function OrdersContent() {
       items: '2',
       location: '🇲🇽 Mexico City, MX',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      description:
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
       id: 2,
@@ -55,7 +55,8 @@ function OrdersContent() {
       items: '2',
       location: '🇮🇹 Milan, IT',
       type: 'One-time',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      description:
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
       id: 3,
@@ -68,7 +69,8 @@ function OrdersContent() {
       items: '1',
       location: '🇮🇹 Bologna, IT',
       type: 'One-time',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      description:
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
       id: 4,
@@ -81,7 +83,8 @@ function OrdersContent() {
       items: '1',
       location: '🇬🇧 London, UK',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      description:
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
       id: 5,
@@ -94,7 +97,8 @@ function OrdersContent() {
       items: '1',
       location: '🇫🇷 Paris, FR',
       type: 'One-time',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      description:
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
       id: 6,
@@ -107,7 +111,8 @@ function OrdersContent() {
       items: '1',
       location: '🇫🇷 Marseille, FR',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      description:
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
       id: 7,
@@ -120,7 +125,8 @@ function OrdersContent() {
       items: '2',
       location: '🇺🇸 New York, USA',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      description:
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
       id: 8,
@@ -133,7 +139,8 @@ function OrdersContent() {
       items: '2',
       location: '🇨🇳 Shanghai, CN',
       type: 'One-time',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+      description:
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     },
     {
       id: 9,
@@ -146,23 +153,24 @@ function OrdersContent() {
       items: '1',
       location: '🇬🇧 Sheffield, UK',
       type: 'Subscription',
-      description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-    }
-  ]
+      description:
+        'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+  ];
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-[96rem] mx-auto">
+    <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-384 mx-auto">
       {/* Page header */}
       <div className="sm:flex sm:justify-between sm:items-center mb-8">
-
         {/* Left: Title */}
         <div className="mb-4 sm:mb-0">
-          <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">Orders ✨</h1>
+          <h1 className="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold">
+            Orders ✨
+          </h1>
         </div>
 
         {/* Right: Actions */}
         <div className="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2">
-
           {/* Delete button */}
           <DeleteButton />
 
@@ -174,14 +182,15 @@ function OrdersContent() {
 
           {/* Add order button */}
           <button className="btn bg-indigo-500 hover:bg-indigo-600 text-white">
-            <svg className="w-4 h-4 fill-current opacity-50 shrink-0" viewBox="0 0 16 16">
+            <svg
+              className="w-4 h-4 fill-current opacity-50 shrink-0"
+              viewBox="0 0 16 16"
+            >
               <path d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z" />
             </svg>
             <span className="hidden xs:block ml-2">Add Order</span>
           </button>
-
         </div>
-
       </div>
 
       {/* Table */}
@@ -190,9 +199,9 @@ function OrdersContent() {
       {/* Pagination */}
       <div className="mt-8">
         <PaginationClassic />
-      </div>    
+      </div>
     </div>
-  )
+  );
 }
 
 export default function Orders() {
@@ -200,5 +209,5 @@ export default function Orders() {
     <SelectedItemsProvider>
       <OrdersContent />
     </SelectedItemsProvider>
-  )
+  );
 }

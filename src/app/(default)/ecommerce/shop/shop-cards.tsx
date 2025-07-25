@@ -13,7 +13,7 @@ type ShopCardProps = {
 
 const ShopCard = ({ imageUrl, title, rate, price }: ShopCardProps) => {
   return (
-    <div className="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+    <div className="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-xs border border-slate-200 dark:border-slate-700 overflow-hidden">
       <div className="flex flex-col h-full">
         {/* Image */}
         <Image
