@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/nextjs';
 import { initialize, mswLoader } from 'msw-storybook-addon';
 import AppProvider from '../src/app/app-provider';
 import '../src/app/css/style.css';
