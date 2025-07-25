@@ -15,7 +15,7 @@ export default function CartItems() {
             href="#0"
           >
             <Image
-              className="rounded-sm"
+              className="rounded-xs"
               src={Related01}
               width={200}
               height={142}
@@ -112,7 +112,7 @@ export default function CartItems() {
             href="#0"
           >
             <Image
-              className="rounded-sm"
+              className="rounded-xs"
               src={Related02}
               width={200}
               height={142}
@@ -209,7 +209,7 @@ export default function CartItems() {
             href="#0"
           >
             <Image
-              className="rounded-sm"
+              className="rounded-xs"
               src={Related03}
               width={200}
               height={142}

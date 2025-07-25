@@ -179,7 +179,7 @@ export default function Cart3() {
             {/* Divider */}
             <hr className="my-6 border-t border-slate-200 dark:border-slate-700" />
             {/* Billing footer */}
-            <div className="bg-white dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 p-4">
+            <div className="bg-white dark:bg-slate-800 rounded-sm border border-slate-200 dark:border-slate-700 p-4">
               <div className="text-center md:text-left md:flex md:items-center md:justify-between space-y-2 md:space-y-0 md:space-x-2">
                 <div className="text-sm">
                   Enjoy a{' '}
@@ -188,7 +188,7 @@ export default function Cart3() {
                   </span>{' '}
                   discount on your next order 🎉
                 </div>
-                <div className="relative inline-flex text-center px-3 py-1 rounded bg-emerald-500">
+                <div className="relative inline-flex text-center px-3 py-1 rounded-sm bg-emerald-500">
                   <div
                     className="absolute w-3 h-3 rounded-full bg-white dark:bg-slate-800 left-0 -translate-x-1/2 top-1/2 -translate-y-1/2"
                     aria-hidden="true"
@@ -329,7 +329,7 @@ export default function Cart3() {
                   <div className="text-slate-800 dark:text-slate-100 font-semibold mb-4">
                     Payment Details
                   </div>
-                  <div className="text-sm rounded border border-slate-200 dark:border-slate-700 p-3">
+                  <div className="text-sm rounded-sm border border-slate-200 dark:border-slate-700 p-3">
                     <div className="flex items-center justify-between space-x-2">
                       {/* CC details */}
                       <div className="flex items-center">
